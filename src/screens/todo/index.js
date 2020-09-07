@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { SafeAreaView, View, FlatList, Button, Text } from 'react-native'
+import { SafeAreaView, FlatList } from 'react-native'
 import axios from 'axios'
 import RowWithCheckBox from '../../components/RowWithCheckBox'
 

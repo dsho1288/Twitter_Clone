@@ -22,6 +22,10 @@ const Users = () => {
   }, [])
 
   useEffect(() => {
+    // fetching faces in different effect so as not to block the original users call
+    // and then mapping the faces to the person after
+    // this allows for the users to initially render with just icons and then update with images
+    // this also helps because ui faces has a very low rate limit
     async function fetchFaces() {
       if (!users.length) return null
       try {
