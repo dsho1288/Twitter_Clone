@@ -1,34 +1,32 @@
-import React, { useState, useEffect } from 'react'
-import { SafeAreaView, FlatList } from 'react-native'
-import axios from 'axios'
-import RowWithCheckBox from '../../components/RowWithCheckBox'
+import React, { useState, useEffect } from "react";
+import { SafeAreaView, FlatList } from "react-native";
+import axios from "axios";
+import RowWithCheckBox from "../../components/RowWithCheckBox";
 
 const Todo = () => {
-  const [todoList, setTodoList] = useState([])
+  const [todoList, setTodoList] = useState([]);
 
   useEffect(() => {
     async function fetchTodos() {
-      const { data } = await axios.get('https://jsonplaceholder.typicode.com/todos');
-      setTodoList(data)
+      const { data } = await axios.get(
+        "https://jsonplaceholder.typicode.com/todos"
+      );
+      setTodoList(data);
     }
-    fetchTodos()
-  }, [])
- 
+    fetchTodos();
+  }, []);
+
   return (
     <SafeAreaView>
       <FlatList
         data={todoList}
         renderItem={({ item }) => {
-
-          return (
-            <RowWithCheckBox {...item} />
-          )
+          return <RowWithCheckBox {...item} />;
         }}
-        keyExtractor={item => `todoList-${item.id}`}
+        keyExtractor={(item) => `todoList-${item.id}`}
       />
     </SafeAreaView>
-  )
+  );
+};
 
-}
-
-export default Todo
+export default Todo;
